@@ -22,11 +22,15 @@ namespace MayinTarlasi
         private void Form1_Load(object sender, EventArgs e)
         {
             lblScore.Text = skor.ToString();
+            TamDoldur();
+        }
+        void TamDoldur()
+        {
             Doldur();
+            MayinAta();
         }
         void Doldur()
         {
-            int mayinSayisi = 0;
             for (int i = 0; i < 100; i++)
             {
                 Button btn = new Button();
@@ -37,20 +41,24 @@ namespace MayinTarlasi
                 btnlar.Add(btn);
                 btn.Click += Btn_Click;
                 flpMayinAlani.Controls.Add(btn);
-
             }
+        }
+        void MayinAta()
+        {
+            int mayinSayisi = 0;
+
             while (mayinSayisi < 20)
             {
                 int sayi = rnd.Next(0, 100);
                 foreach (Button b in btnlar)
                 {
-                    if (b.Name==sayi.ToString())
+                    if (b.Name == sayi.ToString())
                     {
                         b.Tag = 1;
                         mayinSayisi++;
                     }
                 }
-                //if ((int)btnlar[sayi].Tag==0)
+                //if ((int)btnlar[sayi].Tag == 0)
                 //{
                 //    btnlar[sayi].Tag = 1;
                 //    mayinSayisi++;
@@ -93,7 +101,7 @@ namespace MayinTarlasi
         private void btnYeniOyun_Click(object sender, EventArgs e)
         {
             Temizle();
-            Doldur();
+            TamDoldur();
         }
     }
 }
