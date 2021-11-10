@@ -21,11 +21,11 @@ namespace MayinTarlasi
         int skor=0;
         private void Form1_Load(object sender, EventArgs e)
         {
-            lblScore.Text = skor.ToString();
             TamDoldur();
         }
         void TamDoldur()
         {
+            lblScore.Text = skor.ToString();
             Doldur();
             MayinAta();
         }
@@ -58,6 +58,7 @@ namespace MayinTarlasi
                         mayinSayisi++;
                     }
                 }
+
                 //if ((int)btnlar[sayi].Tag == 0)
                 //{
                 //    btnlar[sayi].Tag = 1;
